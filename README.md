@@ -67,6 +67,8 @@ session_start();
 ?>
 ```
 
+Cara lain yang dapat digunakan adalah menyimpan session di database, buka di file. Cara ini tidak disarankan pada sistem berskala kecil karena database akan dibebani dengan proses penyimpanan dan pembacaan session.
+
 Dengan kondisi ini, PHP hanya akan membuat session jika request dari client mengandung cookie yang akan kita gunakan sesbagai nama session atau jika client mengirimkan credential untuk login. Ini akan mencegah PHP membuat file session secara membabibuta hingga jumlahnya puluhan juta karena aplikasi saya diakses oleh jutaan orang di seluruh dunia dalam waktu 24 menit.
 
 Semoga pengalaman ini bermanfaat bagi pembaca yang mengalami masalah yang sama.
