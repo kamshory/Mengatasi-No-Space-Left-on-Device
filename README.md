@@ -40,3 +40,33 @@ Adapun isi dari file crontab adalah sebagai berikut:
 0 1 * * * /usr/bin/find /var/lib/php/session -mindepth 1 -maxdepth 1 -type f -cmin +1440 -print0 -exec rm {} \; >/dev/null 2>&1
 ```
 
+Selain membuat file crontab, saya juga mengubah file session.php menjadi sebagai berikut:
+
+```php
+<?php
+$start_session = false;
+if(isset($_COOKIE['NAMASESSION']))
+{
+$start_session = true;
+}
+if(isset($_POST['username']) && isset($_POST['password']))
+{
+$start_session = true;
+}
+if($start_session)
+{
+$lifetime = 1440;
+$path = "/";
+$domain = ".domain.tld";
+$domain = "";
+$session_name = "NAMASESSION";
+session_name($session_name); 
+session_set_cookie_params ($lifetime, $path, $domain);
+session_start();
+}
+?>
+```
+
+Dengan kondisi ini, PHP hanya akan membuat session jika request dari client mengandung cookie yang akan kita gunakan sesbagai nama session atau jika client mengirimkan credential untuk login. Ini akan mencegah PHP membuat file session secara membabibuta hingga jumlahnya puluhan juta karena aplikasi saya diakses oleh jutaan orang di seluruh dunia dalam waktu 24 menit.
+
+Semoga pengalaman ini bermanfaat bagi pembaca yang mengalami masalah yang sama.
