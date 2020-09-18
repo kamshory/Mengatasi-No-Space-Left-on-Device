@@ -16,7 +16,7 @@ Kapasitas penyimpanan total adalah 40 GB sehingga masih ada sisa ruang sebesar 2
 
 Tiga bulan kemudian, kejadian ini terulang kembali. Tentu saja saya tidak mau membuat akun baru lagi.
 
-Setelah mencari informasi ke sana kemari, saya baru mengetahui bahwa masalah tersebut terjadi karena Inodes pada partisi di mana saya menyimpan aplikasi dan data sudah penuh. Saya kemudian menghapus puluhan ribu file agar sistem kembali berjalan dengan normal.
+Setelah mencari informasi ke sana ke mari, saya baru mengetahui bahwa masalah tersebut terjadi karena Inodes pada partisi di mana saya menyimpan aplikasi dan data sudah penuh. Saya kemudian menghapus puluhan ribu file agar sistem kembali berjalan dengan normal.
 
 Tidak sampai 1 jam, masalah kembali terjadi. Sampai akhirnya diketahui bahwa file yang jumlahnya tidak terkendali adalah file session PHP. Saya menggunakan PHP 5 pada sistem operasi Centos 7. Lokasi file session ada di `/var/lib/php/session`. Tidak mungkin saya menghapus manual satu persatu file tersebut. Menghapus sekaligus file dalam direktori tersebut juga berbahaya apalahi hingga menghapus direktorinya karena kepemilikan dan permission direktori harus disesuaikan dengan pengguna direktori itu sendiri. Jika direktori tersebut terhapus, tentu direktori tersebut harus dibuat lagi secara manual lalu diatur kepemilikan dan permissionnya seperti sedia kala.
 
