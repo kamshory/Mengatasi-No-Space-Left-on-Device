@@ -10,9 +10,9 @@ Lalu, apa pengaruh Inodes pada sebuah komputer Linux?
 
 Saya mempunyai pengalaman buruk tentang Inodes. Server saya menggunakan sistem operasi Linux dengan server web Apache + PHP. Entah bagaimana PHP tidak menghapus secara otomatis file session yang sudah tidak terpakai lagi. Ditambah dengan setiap request baru yang tidak membawa informasi cookie akan membuat sebuah session baru. Seharusnya ini dapat dihindari dengan memeriksa apakah request tersebut mengandung cookie atau tidak. Tapi sudah terjadi. File session sudah dibuat dengan jumlah yang tidak tanggung yaitu 20.000.000 file lebih. Lalu apa yang terjadi?
 
-Inodes untuk partisi /dev/vda1 mempunyai Inodes sebesar 20.970.944. Akhibatnya, ketika Inodes ini sudah terpakai semua, Linux tidak bisa lagi membuat file baru. Pesan error yang muncul adalah "No space left on device" padahal ruang terpakai baru 49%. 
+Inodes untuk partisi /dev/vda1 mempunyai Inodes sebesar 20.970.944. Akhibatnya, ketika Inodes ini sudah terpakai semua, Linux tidak bisa lagi membuat file baru. Pesan error yang muncul adalah `"No space left on device"` padahal ruang terpakai baru 49%. 
 
-Kapasitas penyimpanan total adalah 40 GB sehingga masih ada sisa ruang sebesar 20 GB. Namun untuk membuat sebuah file kosong baru atau file baru yang berukuran 1 byte pun tidak bisa. Pesan error yang muncul adalah "No space left on device". Tentu saja bagi orang yang tidak paham seperti saya bingung bahkan sempat berganti akun dan memindahkan semua file dan database ke akun baru.
+Kapasitas penyimpanan total adalah 40 GB sehingga masih ada sisa ruang sebesar 20 GB. Namun untuk membuat sebuah file kosong baru atau file baru yang berukuran 1 byte pun tidak bisa. Pesan error yang muncul adalah `"No space left on device"`. Tentu saja bagi orang yang tidak paham seperti saya bingung bahkan sempat berganti akun dan memindahkan semua file dan database ke akun baru.
 
 Tiga bulan kemudian, kejadian ini terulang kembali. Tentu saja saya tidak mau membuat akun baru lagi.
 
