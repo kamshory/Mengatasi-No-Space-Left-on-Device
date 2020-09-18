@@ -26,7 +26,7 @@ Langkah yang saya lakukan adalah menghapus file lama dari session PHP dengan per
 /usr/bin/find /var/lib/php/session -mindepth 1 -maxdepth 1 -type f -cmin +1440 -print0 -exec rm {} \; >/dev/null 2>&1
 ```
 
-Di mana `+1440` mengandung arti file yang dimodifikasi lebih dari 24 menit yang lalu. Angka 24 menit ini sama dengan umur default session dan cookie di PHP dan kebetulan sButuh waktu lebih kurang 10 jam untuk membersihkan file session PHP ini karena jumlahnya terlalu banyak.
+Di mana `+1440` mengandung arti file yang dimodifikasi lebih dari 24 menit yang lalu. Angka 24 menit ini sama dengan umur default session dan cookie di PHP dan kebetulan sama dengan konfigurasi yang saya gunakan. Butuh waktu lebih kurang 10 jam untuk membersihkan file session PHP ini karena jumlahnya terlalu banyak.
 
 Untuk mencegah kejadian kehabisan Inodes di masa mendatang, saya membuat sebuah cron job dengan menggunakan crontab.
 
